@@ -11,12 +11,12 @@ public class FixedThreadCoreSizeExecutorService {
         ExecutorService executorService = Executors.newFixedThreadPool(coreCout);
 
         for(int i = 0;i < 100;i++ ){
-            executorService.execute(new Task());
+            executorService.execute(new CPUIntensiveTask());
         }
         System.out.println("Thread :"+Thread.currentThread());
     }
 
-    static class Task implements Runnable{
+    static class CPUIntensiveTask implements Runnable{
         @Override
         public void run() {
             System.out.println("Thread :"+Thread.currentThread());
